@@ -5,7 +5,8 @@
 \title{Get Top Games
 Gets games sorted by number of current viewers on Twitch, most popular first.}
 \usage{
-GetTopGames(clientID, first = 20, after = NULL, before = NULL)
+GetTopGames(clientID = ReadClientID(), first = 20, after = NULL,
+  before = NULL)
 }
 \arguments{
 \item{first}{Maximum number of objects to return. Maximum: 100. Default: 20.}
