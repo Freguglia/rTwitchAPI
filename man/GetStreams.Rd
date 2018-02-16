@@ -38,5 +38,5 @@ Get Streams
 Gets information about active streams.
 }
 \details{
-For multiple query entries, use one string with comma-separated entries. Example: language="pt-br,en-us". Streams are returned sorted by number of current viewers, in descending order. Across multiple pages of results, there may be duplicate or missing streams, as viewers join and leave streams.
+Streams are returned sorted by number of current viewers, in descending order. Across multiple pages of results, there may be duplicate or missing streams, as viewers join and leave streams.
 }

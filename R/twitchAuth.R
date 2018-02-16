@@ -4,7 +4,7 @@
 #' @export
 
 twitchAuth = function(clientID){
-  httr::add_headers('Client-ID' = clientID) %>% set_config()
+  httr::add_headers('Client-ID' = clientID) %>% httr::set_config()
 }
 
 #' Reset Authenctication

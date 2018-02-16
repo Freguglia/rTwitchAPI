@@ -10,7 +10,7 @@ GetGames = function(id=NULL,
   url = 'https://api.twitch.tv/helix/games'
   
   httr::GET(url,
-            query = list(
+            query = QueryList(
               id = id,
               name=name)) %>% content
 }
