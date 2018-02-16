@@ -1,7 +1,6 @@
 #' Get Streams
 #' Gets information about active streams.
 #' @details  For multiple query entries, use one string with comma-separated entries. Example: language="pt-br,en-us". Streams are returned sorted by number of current viewers, in descending order. Across multiple pages of results, there may be duplicate or missing streams, as viewers join and leave streams.
-#' @param ClientID your clientID
 #' @param first Maximum number of objects to return. Maximum: 100. Default: 20.
 #' @param after Cursor for forward pagination: tells the server where to start fetching the next set of results, in a multi-page response.
 #' @param before Cursor for backward pagination: tells the server where to start fetching the next set of results, in a multi-page response. (Do not use, not working due to API issue last checked on 27/12/2017
@@ -12,10 +11,9 @@
 #' @param user_id Returns streams broadcast by one or more specified user IDs. You can specify up to 100 IDs.
 #' @param user_login Returns streams broadcast by one or more specified user login names. You can specify up to 100 names.
 #' @param dataOnly If TRUE, removes pagination element.
-#' @return A list of lists, with the response.
+#' @return A list with "data" and a "pagination" cursor.
 #' @export
-GetStreams = function(clientID = ReadClientID(),
-                      first=20,
+GetStreams = function(first=20,
                       after=NULL,
                       before=NULL,
                       community_id=NULL,
@@ -23,13 +21,11 @@ GetStreams = function(clientID = ReadClientID(),
                       language=NULL,
                       type=NULL,
                       user_id=NULL,
-                      user_login=NULL,
-                      dataOnly = TRUE){
+                      user_login=NULL){
   
   url = 'https://api.twitch.tv/helix/streams'
   
-  response = httr::GET(url,httr::add_headers('Client-ID'=clientID),
-            query = list(
+  httr::GET(url,query = list(
               first=first,
               after=after,
               before=before,
@@ -39,11 +35,4 @@ GetStreams = function(clientID = ReadClientID(),
               type=type,
               user_id=user_id,
               user_login=user_login)) %>% content
-  
-  if(dataOnly){
-    response$data %>% return
-  }
-  else{
-    response %>%  return
-  }
 }

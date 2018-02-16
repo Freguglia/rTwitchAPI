@@ -3,11 +3,11 @@
 \name{GetStreams}
 \alias{GetStreams}
 \title{Get Streams
-Gets information about active streams. Streams are returned sorted by number of current viewers, in descending order. Across multiple pages of results, there may be duplicate or missing streams, as viewers join and leave streams.}
+Gets information about active streams.}
 \usage{
-GetStreams(clientID = ReadClientID(), first = 20, after = NULL,
-  before = NULL, community_id = NULL, game_id = NULL, language = NULL,
-  type = NULL, user_id = NULL, user_login = NULL, dataOnly = TRUE)
+GetStreams(first = 20, after = NULL, before = NULL, community_id = NULL,
+  game_id = NULL, language = NULL, type = NULL, user_id = NULL,
+  user_login = NULL)
 }
 \arguments{
 \item{first}{Maximum number of objects to return. Maximum: 100. Default: 20.}
@@ -28,12 +28,15 @@ GetStreams(clientID = ReadClientID(), first = 20, after = NULL,
 
 \item{user_login}{Returns streams broadcast by one or more specified user login names. You can specify up to 100 names.}
 
-\item{ClientID}{your clientID}
+\item{dataOnly}{If TRUE, removes pagination element.}
+}
+\value{
+A list with "data" and a "pagination" cursor.
 }
 \description{
 Get Streams
-Gets information about active streams. Streams are returned sorted by number of current viewers, in descending order. Across multiple pages of results, there may be duplicate or missing streams, as viewers join and leave streams.
+Gets information about active streams.
 }
 \details{
-For multiple query entries, use one string with comma-separated entries. Example: language="pt-br,en-us"
+For multiple query entries, use one string with comma-separated entries. Example: language="pt-br,en-us". Streams are returned sorted by number of current viewers, in descending order. Across multiple pages of results, there may be duplicate or missing streams, as viewers join and leave streams.
 }

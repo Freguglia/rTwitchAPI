@@ -5,8 +5,7 @@
 \title{Get Top Games
 Gets games sorted by number of current viewers on Twitch, most popular first.}
 \usage{
-GetTopGames(clientID = ReadClientID(), first = 20, after = NULL,
-  before = NULL)
+GetTopGames(first = 20, after = NULL, before = NULL)
 }
 \arguments{
 \item{first}{Maximum number of objects to return. Maximum: 100. Default: 20.}
@@ -14,8 +13,9 @@ GetTopGames(clientID = ReadClientID(), first = 20, after = NULL,
 \item{after}{Cursor for forward pagination: tells the server where to start fetching the next set of results, in a multi-page response.}
 
 \item{before}{Cursor for backward pagination: tells the server where to start fetching the next set of results, in a multi-page response. (Do not use, not working due to API issue last checked on 27/12/2017}
-
-\item{ClientID}{your clientID}
+}
+\value{
+A list with with "data" and a "pagination" cursor.
 }
 \description{
 Get Top Games
