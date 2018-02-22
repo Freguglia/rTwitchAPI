@@ -13,26 +13,33 @@
 #' @param dataOnly If TRUE, removes pagination element.
 #' @return A list with "data" and a "pagination" cursor.
 #' @export
-GetStreams = function(first=20,
-                      after=NULL,
-                      before=NULL,
-                      community_id=NULL,
-                      game_id=NULL,
-                      language=NULL,
-                      type=NULL,
-                      user_id=NULL,
-                      user_login=NULL){
+get_streams <- function(first=20,
+                        after=NULL,
+                        before=NULL,
+                        community_id=NULL,
+                        game_id=NULL,
+                        language=NULL,
+                        type=NULL,
+                        user_id=NULL,
+                        user_login=NULL){
+  
+  if(!provided_client_id()){}
   
   url = 'https://api.twitch.tv/helix/streams'
   
-  httr::GET(url,query = QueryList(
-              first=first,
-              after=after,
-              before=before,
-              community_id=community_id,
-              game_id=game_id,
-              language=language,
-              type=type,
-              user_id=user_id,
-              user_login=user_login)) %>% content
+  o = httr::GET(url,query = query_list(
+    first=first,
+    after=after,
+    before=before,
+    community_id=community_id,
+    game_id=game_id,
+    language=language,
+    type=type,
+    user_id=user_id,
+    user_login=user_login)) %>% content
+  
+  o$data = o$data %>% transpose %>% simplify_all %>% tbl_df
+  if(!is.null(o$error) && o$error=="Unauthorized") stop(o$message)
+  if(max(o$data %>% dim)<1) stop("No results for this query parameters.")
+  return(o)
 }

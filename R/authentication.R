@@ -3,14 +3,14 @@
 #' @param clientID your client-ID
 #' @export
 
-twitchAuth = function(clientID){
-  httr::add_headers('Client-ID' = clientID) %>% httr::set_config()
+twitch_auth = function(client_id){
+  httr::add_headers('Client-ID' = client_id) %>% httr::set_config()
 }
 
 #' Reset Authenctication
 #' Forgets Client-ID.
 #' @export
 
-twitchAuthForget = function(clientID){
+twitch_auth_forget = function(){
   httr::reset_config()
 }

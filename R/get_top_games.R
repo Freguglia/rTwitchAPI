@@ -5,15 +5,23 @@
 #' @param after Cursor for forward pagination: tells the server where to start fetching the next set of results, in a multi-page response.
 #' @param before Cursor for backward pagination: tells the server where to start fetching the next set of results, in a multi-page response. (Do not use, not working due to API issue last checked on 27/12/2017
 #' @export
-GetTopGames = function(first=20,
-                        after=NULL,
-                        before=NULL){
+get_top_games <- function(first=20,
+                          after=NULL,
+                          before=NULL){
   
-  url = 'https://api.twitch.tv/helix/games/top'
+  if(!provided_client_id()){}
   
-  httr::GET(url,
-      query = list(
-          first=first,
-          after=after,
-          before=before)) %>% content
+  url <- 'https://api.twitch.tv/helix/games/top'
+  
+  o <- httr::GET(url,
+            query = list(
+              first=first,
+              after=after,
+              before=before)) %>% 
+    content
+  if(!is.null(o$error) && o$error=="Unauthorized") stop(o$message)
+  if(max(o$data %>% length)<1) stop("No results for this query parameters.")
+  
+  o$data <- o$data %>% transpose %>% simplify_all %>% tbl_df
+  return(o)
 }
