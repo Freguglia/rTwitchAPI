@@ -5,10 +5,10 @@
 \title{Get Clip
 Gets information about clip.}
 \usage{
-get_clip(id)
+get_clip(clip_id)
 }
 \arguments{
-\item{id}{ID of the clip being queried. Limit 1.}
+\item{clip_id}{ID of the clip being queried. Limit 1.}
 }
 \value{
 A list with clip information.
