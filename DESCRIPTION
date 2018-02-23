@@ -7,5 +7,5 @@ Author: Victor Freguglia
 Maintainer: Victor Freguglia <victorfreguglia@gmail.com>
 Description: Provides functions to make Twitch.tv API calls.
 License: MIT
-Depends: magrittr, httr, purrr, dplyr
+imports: httr, purrr, dplyr
 RoxygenNote: 6.0.1

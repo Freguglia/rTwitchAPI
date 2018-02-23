@@ -10,9 +10,9 @@ get_clip = function(clip_id){
   
   url = 'https://api.twitch.tv/helix/clips'
   
-  o <- httr::GET(url,query = query_list(
-              id = clip_id)) %>% content
+  o <- httr::content(httr::GET(url,query = query_list(
+              id = clip_id)))
   if(!is.null(o$error) && o$error=="Unauthorized") stop(o$message)
-  if(max(o$data %>% length)<1) stop("No results for this query parameters.")
-  o$data %>% transpose %>% simplify_all
+  if(length(o$data)<1) stop("No results for this query parameters.")
+  purrr::simplify_all(purrr::transpose(o$data))
 }

@@ -12,10 +12,11 @@ get_users = function(user_id=NULL,
   
   url = 'https://api.twitch.tv/helix/users'
   
-  o <- httr::GET(url,query = query_list(
-    id = user_id,
-    login = user_login)) %>% content
+  o <- httr::content(
+    httr::GET(url,query = query_list(
+      id = user_id,
+      login = user_login)))
   if(!is.null(o$error)) stop(o$message)
-  if(max(o$data %>% length)<1) stop("No results for this query parameters.")
-  o$data %>% transpose %>% simplify_all %>% tbl_df
+  if(length(o$data)<1) stop("No results for this query parameters.")
+  dplyr::tbl_df(purrr::simplify_all(purrr::transpose(o$data)))
 }

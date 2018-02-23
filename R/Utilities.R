@@ -1,8 +1,9 @@
 #Creates the query list appropriately.
 query_list <- function(...){
   a <- list(...) 
-  setNames(unlist(a), rep(names(a), sapply(a, length))) %>% 
-    as.list
+  as.list(
+    setNames(
+      unlist(a), rep(names(a), sapply(a, length))))
 }
 
 #Checks if Client-ID is set.
