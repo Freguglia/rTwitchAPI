@@ -7,6 +7,7 @@
 #' @param before Cursor for backward pagination: tells the server where to start fetching the next set of results, in a multi-page response.
 #' @return A list with clip information.
 #' @export
+#' @references https://dev.twitch.tv/docs/api/reference/#get-users-follows
 
 get_users_follows = function(from_id=NULL,
                      to_id=NULL,

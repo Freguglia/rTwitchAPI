@@ -13,9 +13,12 @@ get_games(id = NULL, name = NULL)
 \item{name}{Game name. The name must be an exact match. At most 100 name values can be specified.}
 }
 \value{
-A list with "data" and a "pagination" cursor.
+A data frame with information about the selected game ids/names.
 }
 \description{
 Get Games
 Gets game information by game ID or name.
+}
+\references{
+https://dev.twitch.tv/docs/api/reference/#get-games
 }

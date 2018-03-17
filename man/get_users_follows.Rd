@@ -26,3 +26,6 @@ A list with clip information.
 Get Users Follows
 Gets information on follow relationships between two Twitch users. Information returned is sorted in order, most recent follow first. This can return information like "who is lirik following," "who is following lirik,” or “is user X following user Y.”
 }
+\references{
+https://dev.twitch.tv/docs/api/reference/#get-users-follows
+}

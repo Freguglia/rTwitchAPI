@@ -13,4 +13,4 @@ provided_client_id <- function(){
 }
 
 #No Client-ID error
-err_no_id <- 'stop("Please set a Client-ID value with twitch_auth().")'
+#err_no_id <- 'stop("Please set a Client-ID value with twitch_auth().")'

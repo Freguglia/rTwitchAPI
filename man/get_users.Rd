@@ -19,3 +19,6 @@ A list with clip information.
 Get Users
 Gets information about one or more specified Twitch users. Users are identified by optional user IDs and/or login name. If neither a user ID nor a login name is specified, the user is looked up by Bearer token.
 }
+\references{
+https://dev.twitch.tv/docs/api/reference/#get-users
+}

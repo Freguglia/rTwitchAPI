@@ -4,6 +4,7 @@
 #' @param user_login User login name. Multiple login names can be specified. Limit: 100.
 #' @return A list with clip information.
 #' @export
+#' @references https://dev.twitch.tv/docs/api/reference/#get-users
 
 get_users = function(user_id=NULL,
                      user_login=NULL){

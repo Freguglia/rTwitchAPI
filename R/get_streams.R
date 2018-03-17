@@ -11,8 +11,10 @@
 #' @param user_id Returns streams broadcast by one or more specified user IDs. You can specify up to 100 IDs.
 #' @param user_login Returns streams broadcast by one or more specified user login names. You can specify up to 100 names.
 #' @param dataOnly If TRUE, removes pagination element.
-#' @return A list with "data" and a "pagination" cursor.
+#' @return A list with "data" (a data frame) and a "pagination" cursor.
 #' @export
+#' @references https://dev.twitch.tv/docs/api/reference/#get-streams
+#' @details Because the query only returns up to 100 elements, you need to use the pagination parameters if you need more than 100 results. For example, if you want the first 150 streams, you need to query with \code{first=100} and call it again with \code{first=50} and \code{pagination=X}, where \code{X} is the pagination marker returned in the first call. 
 get_streams <- function(first=20,
                         after=NULL,
                         before=NULL,

@@ -2,12 +2,13 @@
 % Please edit documentation in R/authentication.R
 \name{twitch_auth_forget}
 \alias{twitch_auth_forget}
-\title{Reset Authenctication
-Forgets Client-ID.}
+\title{Reset Authenctication}
 \usage{
 twitch_auth_forget()
 }
 \description{
-Reset Authenctication
 Forgets Client-ID.
+}
+\details{
+Use this to forget the client-ID previously set, then set your new client-ID with \code{\link{twitch_auth}}
 }

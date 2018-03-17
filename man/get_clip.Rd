@@ -17,3 +17,6 @@ A list with clip information.
 Get Clip
 Gets information about clip.
 }
+\references{
+https://dev.twitch.tv/docs/api/reference/#get-clip
+}

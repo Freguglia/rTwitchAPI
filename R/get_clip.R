@@ -3,6 +3,7 @@
 #' @param clip_id ID of the clip being queried. Limit 1.
 #' @return A list with clip information.
 #' @export
+#' @references https://dev.twitch.tv/docs/api/reference/#get-clip
 
 get_clip = function(clip_id){
   

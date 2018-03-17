@@ -3,8 +3,10 @@
 #' @return A list with with "data" and a "pagination" cursor.
 #' @param first Maximum number of objects to return. Maximum: 100. Default: 20.
 #' @param after Cursor for forward pagination: tells the server where to start fetching the next set of results, in a multi-page response.
-#' @param before Cursor for backward pagination: tells the server where to start fetching the next set of results, in a multi-page response. (Do not use, not working due to API issue last checked on 27/12/2017
+#' @param before Cursor for backward pagination: tells the server where to start fetching the next set of results, in a multi-page response. (Do not use, not working due to API issue last checked on 27/12/2017)
 #' @export
+#' @details If you need information about how pagination works, see the details of \link{get_streams}.
+#' @references https://dev.twitch.tv/docs/api/reference/#get-top-games
 get_top_games <- function(first=20,
                           after=NULL,
                           before=NULL){

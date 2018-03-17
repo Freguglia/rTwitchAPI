@@ -31,7 +31,7 @@ get_streams(first = 20, after = NULL, before = NULL,
 \item{dataOnly}{If TRUE, removes pagination element.}
 }
 \value{
-A list with "data" and a "pagination" cursor.
+A list with "data" (a data frame) and a "pagination" cursor.
 }
 \description{
 Get Streams
@@ -39,4 +39,9 @@ Gets information about active streams.
 }
 \details{
 Streams are returned sorted by number of current viewers, in descending order. Across multiple pages of results, there may be duplicate or missing streams, as viewers join and leave streams.
+
+Because the query only returns up to 100 elements, you need to use the pagination parameters if you need more than 100 results. For example, if you want the first 150 streams, you need to query with \code{first=100} and call it again with \code{first=50} and \code{pagination=X}, where \code{X} is the pagination marker returned in the first call.
+}
+\references{
+https://dev.twitch.tv/docs/api/reference/#get-streams
 }

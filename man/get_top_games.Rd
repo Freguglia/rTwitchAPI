@@ -12,7 +12,7 @@ get_top_games(first = 20, after = NULL, before = NULL)
 
 \item{after}{Cursor for forward pagination: tells the server where to start fetching the next set of results, in a multi-page response.}
 
-\item{before}{Cursor for backward pagination: tells the server where to start fetching the next set of results, in a multi-page response. (Do not use, not working due to API issue last checked on 27/12/2017}
+\item{before}{Cursor for backward pagination: tells the server where to start fetching the next set of results, in a multi-page response. (Do not use, not working due to API issue last checked on 27/12/2017)}
 }
 \value{
 A list with with "data" and a "pagination" cursor.
@@ -20,4 +20,10 @@ A list with with "data" and a "pagination" cursor.
 \description{
 Get Top Games
 Gets games sorted by number of current viewers on Twitch, most popular first.
+}
+\details{
+If you need information about how pagination works, see the details of \link{get_streams}.
+}
+\references{
+https://dev.twitch.tv/docs/api/reference/#get-top-games
 }
