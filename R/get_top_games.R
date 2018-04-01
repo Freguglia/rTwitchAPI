@@ -15,15 +15,15 @@ get_top_games <- function(first=20,
   
   url <- 'https://api.twitch.tv/helix/games/top'
   
-  o <- httr::content(
-    httr::GET(url,
+  o <- GET(url,
               query = list(
                 first=first,
                 after=after,
-                before=before)))
+                before=before)) %>% content()
   if(!is.null(o$error) && o$error=="Unauthorized") stop(o$message)
   if(length(o$data)<1) stop("No results for this query parameters.")
   
-  o$data <- dplyr::tbl_df(purrr::simplify_all(purrr::transpose(o$data)))
+  o$data <- o$data %>% transpose() %>% simplify_all() %>% tbl_df()
+  
   return(o)
 }

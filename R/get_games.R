@@ -5,6 +5,7 @@
 #' @return A data frame with information about the selected game ids/names.
 #' @export
 #' @references https://dev.twitch.tv/docs/api/reference/#get-games
+#' @importFrom dplyr tbl_df
 get_games <- function(id=NULL,
                       name=NULL){
   
@@ -12,12 +13,15 @@ get_games <- function(id=NULL,
   
   url <- 'https://api.twitch.tv/helix/games'
   
-  o <- httr::content(httr::GET(url,
+  o <- GET(url,
             query = query_list(
               id = id,
-              name=name)))
+              name=name)) %>% content()
+  
   if(!is.null(o$error) && o$error=="Unauthorized") stop(o$message)
   if(length(o$data)<1) stop("No results for this query parameters.")
-  o <- dplyr::tbl_df(purrr::simplify_all(purrr::transpose(o$data)))
+  
+  o <- o$data %>% transpose() %>% simplify_all() %>% tbl_df()
+  
   return(o)
 }

@@ -27,29 +27,24 @@ get_streams <- function(first=20,
   
   if(!provided_client_id()){}
   
-  url = 'https://api.twitch.tv/helix/streams'
+  url <- 'https://api.twitch.tv/helix/streams'
   
-  o = httr::content(
-    httr::GET(url,query = query_list(
-      first=first,
-      after=after,
-      before=before,
-      community_id=community_id,
-      game_id=game_id,
-      language=language,
-      type=type,
-      user_id=user_id,
-      user_login=user_login)))
+  o <- GET(url,
+           query = query_list(
+             first=first,
+             after=after,
+             before=before,
+             community_id=community_id,
+             game_id=game_id,
+             language=language,
+             type=type,
+             user_id=user_id,
+             user_login=user_login)) %>% content()
   
   if(!is.null(o$error) && o$error=="Unauthorized") stop(o$message)
   if(length(o$data)<1) stop("No results for this query parameters.")
   
-  o$data = dplyr::tbl_df(
-    purrr::simplify_all(
-      purrr::transpose(
-        o$data
-      )
-    )
-  )
+  o$data <- o$data %>% transpose() %>% simplify_all() %>% tbl_df()
+  
   return(o)
 }

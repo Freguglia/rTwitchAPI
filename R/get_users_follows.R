@@ -17,18 +17,19 @@ get_users_follows = function(from_id=NULL,
   
   if(!provided_client_id()){}
   
-  url = 'https://api.twitch.tv/helix/users/follows'
+  url <- 'https://api.twitch.tv/helix/users/follows'
   
-  o <- httr::content(
-    httr::GET(url,query = query_list(
+  o <- GET(url,query = query_list(
       to_id = to_id,
       from_id = from_id,
       first = first,
       after = after,
-      before = before
-    )))
+      before = before)) %>% content()
+  
   if(!is.null(o$error) && o$error=="Unauthorized") stop(o$message)
   if(length(o$data)<1) stop("No results for this query parameters.")
-  o$data <- dplyr::tbl_df(purrr::simplify_all(purrr::transpose(o$data)))
+  
+  o$data <- o$data %>% transpose() %>% simplify_all() %>% tbl_df()
+  
   return(o)
 }
