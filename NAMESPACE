@@ -3,6 +3,7 @@
 export(get_clip)
 export(get_games)
 export(get_streams)
+export(get_summary)
 export(get_top_games)
 export(get_users)
 export(get_users_follows)

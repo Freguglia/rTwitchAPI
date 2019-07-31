@@ -12,9 +12,6 @@ get_users(user_id = NULL, user_login = NULL)
 
 \item{user_login}{User login name. Multiple login names can be specified. Limit: 100.}
 }
-\value{
-A list with clip information.
-}
 \description{
 Get Users
 Gets information about one or more specified Twitch users. Users are identified by optional user IDs and/or login name. If neither a user ID nor a login name is specified, the user is looked up by Bearer token.

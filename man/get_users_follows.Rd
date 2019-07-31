@@ -2,8 +2,7 @@
 % Please edit documentation in R/get_users_follows.R
 \name{get_users_follows}
 \alias{get_users_follows}
-\title{Get Users Follows
-Gets information on follow relationships between two Twitch users. Information returned is sorted in order, most recent follow first. This can return information like "who is lirik following," "who is following lirik,” or “is user X following user Y.”}
+\title{Get Users Follows}
 \usage{
 get_users_follows(from_id = NULL, to_id = NULL, first = 20,
   after = NULL, before = NULL)
@@ -24,7 +23,6 @@ A list with clip information.
 }
 \description{
 Get Users Follows
-Gets information on follow relationships between two Twitch users. Information returned is sorted in order, most recent follow first. This can return information like "who is lirik following," "who is following lirik,” or “is user X following user Y.”
 }
 \references{
 https://dev.twitch.tv/docs/api/reference/#get-users-follows
