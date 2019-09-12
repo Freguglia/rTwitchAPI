@@ -27,8 +27,6 @@ get_streams(first = 20, after = NULL, before = NULL,
 \item{user_id}{Returns streams broadcast by one or more specified user IDs. You can specify up to 100 IDs.}
 
 \item{user_login}{Returns streams broadcast by one or more specified user login names. You can specify up to 100 names.}
-
-\item{dataOnly}{If TRUE, removes pagination element.}
 }
 \value{
 A list with "data" (a data frame) and a "pagination" cursor.

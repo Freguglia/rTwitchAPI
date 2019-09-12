@@ -11,7 +11,7 @@ twitch_auth(client_id)
 twitch_auth_forget()
 }
 \arguments{
-\item{clientID}{your client-ID.}
+\item{client_id}{your client-ID.}
 }
 \description{
 Sets up your Client-ID or forgets it.

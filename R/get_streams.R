@@ -10,7 +10,6 @@
 #' @param type Stream type: "all", "live", "vodcast". Default: "all".
 #' @param user_id Returns streams broadcast by one or more specified user IDs. You can specify up to 100 IDs.
 #' @param user_login Returns streams broadcast by one or more specified user login names. You can specify up to 100 names.
-#' @param dataOnly If TRUE, removes pagination element.
 #' @return A list with "data" (a data frame) and a "pagination" cursor.
 #' @export
 #' @references https://dev.twitch.tv/docs/api/reference/#get-streams
