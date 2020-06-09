@@ -42,17 +42,31 @@ devtools::install_github("Freguglia/rTwitchAPI")
 
 As most API's, Twitch API requires authentication for some types of calls, in the form of a **Client-ID** and/or an **Oauth token**. You can setup your Client-ID with the `twitch_auth()` function. For more information access on Client-ID and how to register your app, read [this link](https://dev.twitch.tv/dashboard/apps/create).
 
+**Define your Client-ID and Client-Secret variable.**
+
+In order to add your Client-ID and Client-Secret to your environment file, you can use the function `edit_r_environ()` from the [`usethis` package](https://usethis.r-lib.org/).
+
+```{r, eval = F}
+usethis::edit_r_environ()
+```
+
+
+This will open your .Renviron file in your text editor. Now, you can add the following line to it:
+
+```{r, eval = F}
+TWITCH_CLIENT_ID=YOUR_CLIENT_ID
+TWITCH_CLIENT_SECRET=YOUR_CLIENT_SECRET
+```
+
+Save the file and restart R for the changes to take effect.
 
 ## Example
 
 ```{r}
 library(rTwitchAPI)
-# Reading the Client-ID from a file for the example, but you can assign directly
-# my_client_id <- "YOUR_CLIENT_ID"
-my_client_id <- readChar("~/.twitch_auth", 30)
 
 # Setup authentication
-twitch_auth(my_client_id)
+twitch_auth()
 
 # An example request to the streams endpoint
 streams_live <- get_streams(first = 15, language = "en")

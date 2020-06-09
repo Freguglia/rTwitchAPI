@@ -6,12 +6,14 @@
 \alias{twitch_auth_forget}
 \title{Authentication}
 \usage{
-twitch_auth(client_id)
+twitch_auth(client_id, client_secret)
 
 twitch_auth_forget()
 }
 \arguments{
 \item{client_id}{your client-ID.}
+
+\item{client_secret}{your client-secret.}
 }
 \description{
 Sets up your Client-ID or forgets it.

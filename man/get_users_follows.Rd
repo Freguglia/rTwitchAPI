@@ -4,8 +4,13 @@
 \alias{get_users_follows}
 \title{Get Users Follows}
 \usage{
-get_users_follows(from_id = NULL, to_id = NULL, first = 20,
-  after = NULL, before = NULL)
+get_users_follows(
+  from_id = NULL,
+  to_id = NULL,
+  first = 20,
+  after = NULL,
+  before = NULL
+)
 }
 \arguments{
 \item{from_id}{User ID. The request returns information about users who are being followed by the from_id user.}
