@@ -21,7 +21,7 @@ twitch_auth = function(){
                                client_secret = client_secret,
                                grant_type="client_credentials")) %>% content()
   
-  httr::set_config(httr::add_headers('Client-ID' = client_id, Authorization=glue::glue("Bearer {o$access_token}")))
+  httr::set_config(httr::add_headers('Client-ID' = client_id, Authorization=paste0("Bearer ",o$access_token)))
 }
 
 #' @rdname authentication
