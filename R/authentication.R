@@ -1,9 +1,7 @@
 #' Authentication
 #' 
-#' Sets up your Client-ID or forgets it.
+#' Set up your Client-ID and Secret or forget them.
 #' @name authentication
-#' @param client_id your client-ID.
-#' @param client_secret your client-secret.
 #' @references https://dev.twitch.tv/docs/authentication/
 #' @details If, for some reason, you need to change what client-ID you're making calls with, use use \code{\link{twitch_auth_forget}} and then reuse this function to set the new client-ID. Check the link in references to understand what is a client-ID, how it works and how to get one.
 #' @export
