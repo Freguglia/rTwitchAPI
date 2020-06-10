@@ -5,9 +5,17 @@
 \title{Get Streams
 Gets information about active streams.}
 \usage{
-get_streams(first = 20, after = NULL, before = NULL,
-  community_id = NULL, game_id = NULL, language = NULL,
-  type = NULL, user_id = NULL, user_login = NULL)
+get_streams(
+  first = 20,
+  after = NULL,
+  before = NULL,
+  community_id = NULL,
+  game_id = NULL,
+  language = NULL,
+  type = NULL,
+  user_id = NULL,
+  user_login = NULL
+)
 }
 \arguments{
 \item{first}{Maximum number of objects to return. Maximum: 100. Default: 20.}
