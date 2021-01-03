@@ -20,7 +20,7 @@ get_games <- function(id=NULL,
   if(!is.null(o$error) && o$error=="Unauthorized") stop(o$message)
   if(length(o$data)<1) stop("No results for this query parameters.")
   
-  o <- o$data %>% transpose() %>% simplify_all() %>% tibble::as_tibble()
+  o <- o$data %>% transpose() %>% simplify_all() %>% dplyr::as_tibble()
   
   return(o)
 }
