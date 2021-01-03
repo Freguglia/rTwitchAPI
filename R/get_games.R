@@ -5,7 +5,6 @@
 #' @return A data frame with information about the selected game ids/names.
 #' @export
 #' @references https://dev.twitch.tv/docs/api/reference/#get-games
-#' @importFrom dplyr tbl_df
 get_games <- function(id=NULL,
                       name=NULL){
   
@@ -21,7 +20,7 @@ get_games <- function(id=NULL,
   if(!is.null(o$error) && o$error=="Unauthorized") stop(o$message)
   if(length(o$data)<1) stop("No results for this query parameters.")
   
-  o <- o$data %>% transpose() %>% simplify_all() %>% tbl_df()
+  o <- o$data %>% transpose() %>% simplify_all() %>% tibble::as_tibble()
   
   return(o)
 }

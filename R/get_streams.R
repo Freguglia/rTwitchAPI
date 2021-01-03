@@ -43,7 +43,7 @@ get_streams <- function(first=20,
   if(!is.null(o$error) && o$error=="Unauthorized") stop(o$message)
   if(length(o$data)<1) stop("No results for this query parameters.")
   
-  o$data <- o$data %>% transpose() %>% simplify_all() %>% tbl_df()
+  o$data <- o$data %>% transpose() %>% simplify_all() %>% tibble::as_tibble()
   
   return(o)
 }

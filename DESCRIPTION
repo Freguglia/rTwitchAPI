@@ -1,15 +1,15 @@
 Package: rTwitchAPI
 Type: Package
 Title: A Twitch.tv API wrapper for R
-Version: 0.1
-Date: 2018-03-16
+Version: 0.1.1
+Date: 2020-01-02
 Author: Victor Freguglia
 Maintainer: Victor Freguglia <victorfreguglia@gmail.com>
 Description: Provides functions to make Twitch.tv API calls.
 License: GPL-3
 Depends: R (>= 3.4.0)
 Imports: httr, purrr, dplyr, magrittr
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 URL: https://github.com/Freguglia/rTwitchAPI
 BugReports: https://github.com/Freguglia/rTwitchAPI/issues
 Encoding: UTF-8

@@ -17,5 +17,5 @@ get_users = function(user_id=NULL,
       login = user_login)) %>% content()
   if(!is.null(o$error)) stop(o$message)
   if(length(o$data)<1) stop("No results for this query parameters.")
-  o$data %>% transpose() %>% simplify_all() %>% tbl_df()
+  o$data %>% transpose() %>% simplify_all() %>% tibble::as_tibble()
 }

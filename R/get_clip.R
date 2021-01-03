@@ -10,7 +10,7 @@
 #' @importFrom httr GET
 #' @importFrom magrittr %>%
 
-get_clip = function(clip_id){
+get_clip <- function(clip_id){
   
   if(!provided_client_id()){}
   
