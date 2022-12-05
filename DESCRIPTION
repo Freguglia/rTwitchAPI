@@ -9,7 +9,7 @@ Description: Provides functions to make Twitch.tv API calls.
 License: GPL-3
 Depends: R (>= 3.4.0)
 Imports: httr, purrr, dplyr, magrittr
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.1
 URL: https://github.com/Freguglia/rTwitchAPI
 BugReports: https://github.com/Freguglia/rTwitchAPI/issues
 Encoding: UTF-8
