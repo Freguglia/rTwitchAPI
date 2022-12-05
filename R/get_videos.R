@@ -19,10 +19,10 @@ get_videos <- function(video_id=NULL,
   
   o <- GET(url,
            query = query_list(
-             video_id = video_id,
+             id = video_id,
              user_id = user_id,
              game_id = game_id,
-             first=2)) %>% content()
+             first=first)) %>% content()
   
   if(!is.null(o$error) && o$error=="Unauthorized") stop(o$message)
   if(length(o$data)<1) stop("No results for this query parameters.")
